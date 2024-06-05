@@ -98,6 +98,8 @@ b)  Push your code to this new repository by copying and executing the
     
 c)  Regularly push your latest changes to GitHub again and especially do
     so when you are finished with this sheet.
+    
+    Pushing regularly the latest changes to GitHub, especially when this sheet is finished.
 
 ## Exercise 3: Baby-Names in Munich (3.5 Points)
 
