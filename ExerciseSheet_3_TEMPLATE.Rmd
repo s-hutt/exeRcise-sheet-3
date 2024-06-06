@@ -291,6 +291,26 @@ report(linear_model_natural_disasters)
 f)  Create a meaningful plot / figure with the dataset. Make sure to
     provide a figure caption (via the chunk options / Rmarkdown) and
     correctly label the figure.
+    
+```{r, fig.cap="Trend analysis of natural disasters over time"}
+# Creating a meaningful plot with the dataset "filtered_natural_disasters_data":
+ggplot(
+  filtered_natural_disasters_data,
+  aes(
+    x = Year,
+    y = `Number of disasters (EMDAT (2019))`
+  ) 
+) +
+  geom_line() +
+  labs(
+    x = "Year",
+    y = "Number of natural disasters",
+    title = "Number of natural disasters from 1900 to 2019",
+    subtitle = "A rise in natural disasters over the years: Trend analysis from 1900 to 2019",
+    caption = "Our World in Data, https://github.com/owid/owid-datasets/tree/master/datasets/Natural%20disasters%20from%201900%20to%202019%20-%20EMDAT%20(2020), Natural disasters from 1900 to 2019 - EMDAT (2020).csv"
+  )
+```
+  
 
 ## Final Note
 
