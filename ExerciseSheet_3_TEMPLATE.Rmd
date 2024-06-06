@@ -199,6 +199,17 @@ print(paste("The year 2022 had the bigger baby boom, with a total of", total_bab
 d)  Add a new column `year` to both datasets which holds the correct
     year for each.
 
+```{r}
+# Adding a new column "year" to the dataset for 2022:
+baby_names_munich_22 <- mutate(baby_names_munich_22, year = 2022)
+# Adding a new column "year" to the dataset for 2023:
+baby_names_munich_23 <- mutate(baby_names_munich_23, year = 2023)
+# Printing the first 10 rows of both new datasets:
+head(baby_names_munich_22, 10)
+head(baby_names_munich_23, 10)
+```
+
+
 e)  Combine both datasets into one using `bind_rows()`.
 
 f)  Combine the counts for same names to determine the most popular
