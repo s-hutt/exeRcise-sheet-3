@@ -169,6 +169,32 @@ Explanation of the repercussions: The variable "Anzahl" now consists of numerica
 
 c)  Calculate the total number of babies born in Munich in 2022
     and 2023. Which year had the bigger baby-boom?
+    
+```{r}
+# Calculating the total number of babies born in 2022:
+total_babies_2022 <- sum(baby_names_munich_22$Anzahl)
+# Printing the result:
+print(total_babies_2022)
+# There is a total of 25199 babies born in 2022.
+# Calculating the total number of babies born in 2023:
+total_babies_2023 <- sum(baby_names_munich_23$Anzahl)
+# Printing the result:
+print(total_babies_2023)
+# There is a total of 24229 babies born in 2023.
+# Comparing the total number of babies born in each year:
+if (total_babies_2022 > total_babies_2023) {
+  cat("In 2022, there were more babies born in Munich.")
+} else if (total_babies_2022 < total_babies_2023) {
+  cat("In 2023, there were more babies born in Munich.")
+} else {
+  cat("The number of babies born in Munich was the same in both 2022 and 2023.")
+}
+# Calculating the difference:
+total_babies_difference <- total_babies_2022 - total_babies_2023
+# Printing the solution: 
+print(paste("The year 2022 had the bigger baby boom, with a total of", total_babies_difference, "more babies born."))
+```
+    
 
 d)  Add a new column `year` to both datasets which holds the correct
     year for each.
