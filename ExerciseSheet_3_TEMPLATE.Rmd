@@ -112,13 +112,60 @@ Link: <https://opendata.muenchen.de/dataset/vornamen-von-neugeborenen>
 a)  Download the data for both years and track it in git. For small
     datasets like these adding them to git is not a problem.
     
-    Downloading the datasets and tracking them in git
+    Downloading the datasets and tracking them into git.
 
 b)  Load the data for both years into R. Check the type of the count
     variable ("Anzahl") and look into the data to determine why it is
     not numeric? Fix the problem in an appropriate manner, it is OK if
     some of the counts are inaccurate because of this. Explain your
     solution and the repercussions.
+    
+```{r}
+# Loading the tidyverse:
+library(tidyverse)
+# Loading the data for the year 2022 into R:
+baby_names_munich_22 <- read_csv("data/open_data_portal_2022.csv")
+# Loading the data for the year 2023 into R:
+baby_names_munich_23 <- read_csv("data/vornamen-muenchen-2023.csv")
+# Checking the type of the count variable for 2022:
+typeof(baby_names_munich_22$Anzahl)
+# The type of the variable "Anzahl" for 2022 is "character".
+# Checking the type of the count variable for 2023:
+typeof(baby_names_munich_23$Anzahl)
+# The type of the variable "Anzahl" for 2023 is "character".
+# Looking into the data with the View()-function:
+# View(baby_names_munich_22)    - Commented out due to rendering
+# View(baby_names_munich_23)    - Commented out due to rendering
+```
+
+Answer: The variable "Anzahl" is not numeric because the datasets use the value "4 oder weniger" ("4 or fewer") when the count of the name is not higher than 4.
+
+```{r}
+# Fixing the problem:
+# Creating a function that cleans an converts the variable "Anzahl" to a numeric variable:
+clean_count <- function(df) {
+  df %>% 
+    mutate(Anzahl = if_else(Anzahl == "4 oder weniger", "4",Anzahl)) %>% 
+    mutate(Anzahl = as.numeric(Anzahl))
+}
+# Applying the new function to both datasets:
+baby_names_munich_22 <- clean_count(baby_names_munich_22)
+baby_names_munich_23 <- clean_count(baby_names_munich_23)
+# Checking the type of the count variable for 2022:
+typeof(baby_names_munich_22$Anzahl)
+# The type of the variable "Anzahl" for 2022 is "double".
+# Checking the type of the count variable for 2023:
+typeof(baby_names_munich_23$Anzahl)
+# The type of the variable "Anzahl" for 2023 is "double".
+
+# Printing the first 10 rows of both new datasets:
+head(baby_names_munich_22)
+head(baby_names_munich_23)
+```
+
+Explanation of the solution: We addressed the issue by replacing instances of "4 oder weniger" with the numeric value 4 and then converting the "Anzahl" variable to a numeric type.
+
+Explanation of the repercussions: The variable "Anzahl" now consists of numerical values. However, due to the approximation of "4 oder weniger" to 4, it occurs that names appearing less than 4 times are now indicated with the value 4.
 
 c)  Calculate the total number of babies born in Munich in 2022
     and 2023. Which year had the bigger baby-boom?
