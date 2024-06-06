@@ -223,6 +223,22 @@ head(combined_baby_name_dataset, 10)
 f)  Combine the counts for same names to determine the most popular
     names across both years. Print out the top 10 names in a nicely
     formatted table for both years. Include a table caption.
+    
+```{r}
+# Grouping the data by the name variable "Vorname" and calculating the total count for each name:
+popular_names <- combined_baby_name_dataset %>% 
+  group_by(Vorname) %>% 
+  summarize(total_count = sum(Anzahl))
+# Arranging the dataset "popular_names" in descending order of "total_count":
+popular_names_arranged <- popular_names %>% 
+  arrange(desc(total_count))
+# Printing out the top 10 names in a nicely formatted table for both years, including a table caption:
+top_10_names <- popular_names_arranged %>% 
+  slice_head(n=10)
+
+knitr::kable(top_10_names, caption = "Top 10 most popular baby names in Munich across the years 2022 and 2023")
+```
+    
 
 ## Exercise 4: Open Analysis (4 points)
 
