@@ -258,8 +258,8 @@ b)  Download the dataset and track it in git.
 
 c)  Put the name / title of the dataset and a link to it below.
 
--   Dataset Name: ...
--   Link: <https://github.com/owid/owid-datasets/>...
+-   Dataset Name: "Natural disasters from 1900 to 2019 - EMDAT (2020)".
+-   Link: https://github.com/owid/owid-datasets/tree/master/datasets/Natural%20disasters%20from%201900%20to%202019%20-%20EMDAT%20(2020)
 
 d)  Come up with a (research) question you want to answer with the data
     and briefly explain why you believe this is an interesting question
