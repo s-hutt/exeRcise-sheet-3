@@ -253,6 +253,9 @@ a)  Go to <https://github.com/owid/owid-datasets/tree/master/datasets>
     Choosing the dataset "Natural disasters from 1900 to 2019 - EMDAT (2020)".
     
 b)  Download the dataset and track it in git.
+
+    Downloading and tracking the dataset into git.
+
 c)  Put the name / title of the dataset and a link to it below.
 
 -   Dataset Name: ...
