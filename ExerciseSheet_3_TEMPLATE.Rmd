@@ -265,6 +265,9 @@ d)  Come up with a (research) question you want to answer with the data
     and briefly explain why you believe this is an interesting question
     within one sentence. It should be a question that can be answered
     with the dataset and using R.
+    
+    Research question: Has the frequency of natural disasters changed over time, and if so, is there a significant increase or decrease? This question is important to identify potential trends and patterns in natural disasters and to understand whether the frequency of these events has changed over time, which could have significant implications for risk management and disaster preparedness.
+    
 e)  Use R to answer your chosen question.
 f)  Create a meaningful plot / figure with the dataset. Make sure to
     provide a figure caption (via the chunk options / Rmarkdown) and
