@@ -269,6 +269,25 @@ d)  Come up with a (research) question you want to answer with the data
     Research question: Has the frequency of natural disasters changed over time, and if so, is there a significant increase or decrease? This question is important to identify potential trends and patterns in natural disasters and to understand whether the frequency of these events has changed over time, which could have significant implications for risk management and disaster preparedness.
     
 e)  Use R to answer your chosen question.
+
+```{r}
+#Loading the dataset "Natural disasters from 1900 to 2019 - EMDAT (2020).csv" into R:
+natural_disasters_data <- read_csv("data/Natural disasters from 1900 to 2019 - EMDAT (2020).csv")
+# Filtering the data based on the variable "Entity":
+filtered_natural_disasters_data <- natural_disasters_data %>% 
+  filter(Entity == "All natural disasters")
+# Running a linear regression with "Number of disasters (EMDAT (2019))" as dependent variable and "Year" as independent variable:
+linear_model_natural_disasters <- lm(`Number of disasters (EMDAT (2019))` ~ Year, data = filtered_natural_disasters_data)
+# Printing the summary of the linear model:
+summary(linear_model_natural_disasters)
+# Loading the easystats package:
+library(easystats)
+# Printing the report of the linear model:
+report(linear_model_natural_disasters)
+```
+
+    Answer to the research question: The frequency of natural disasters has significantly increased over time, with an average increase of 3.41 disasters per year (95% CI [3.06, 3.75]). This suggests that the number of natural disasters has steadily risen over time.
+
 f)  Create a meaningful plot / figure with the dataset. Make sure to
     provide a figure caption (via the chunk options / Rmarkdown) and
     correctly label the figure.
