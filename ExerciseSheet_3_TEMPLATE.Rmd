@@ -212,6 +212,14 @@ head(baby_names_munich_23, 10)
 
 e)  Combine both datasets into one using `bind_rows()`.
 
+```{r}
+# Combining both datasets into one using "bind_rows()":
+combined_baby_name_dataset <- bind_rows(baby_names_munich_22, baby_names_munich_23)
+# Printing the first 10 rows of the combined dataset "combined_baby_name_dataset":
+head(combined_baby_name_dataset, 10)
+```
+
+
 f)  Combine the counts for same names to determine the most popular
     names across both years. Print out the top 10 names in a nicely
     formatted table for both years. Include a table caption.
